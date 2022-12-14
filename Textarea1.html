@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>title</title>
+    <style>
+        textarea{
+            width: 100%;
+            height:100%;
+            resize: none;
+            overflow: hidden;
+    
+        }
+        html,body{
+            height: 98.8%;
+            
+        }
+        .counts {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      padding: 5px;
+      background-color: none;
+      color: darkblue;
+      font-size: 14px;
+    }
+    </style>
+</head>
+<body>
+    <textarea id="textarea" placeholder="type here..."></textarea>
+    <div id="counts" class="counts"></div>
+    <script>
+      var textarea = document.getElementById('textarea');
+      var counts = document.getElementById('counts');
+  
+      textarea.addEventListener('input', function() {
+        var value = textarea.value;
+        var lines = value.split('\n');
+        var characters = value.length;
+        var words = value.split(/\s+/g).length - 1;
+        counts.innerHTML = characters + 'C ' + words + 'W ' + lines.length + 'L';
+      });
+    </script>
+
+
+    
+</body>
+</html>
